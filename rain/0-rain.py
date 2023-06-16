@@ -3,6 +3,7 @@
     Python script that calculates how much water is retained after it rains
 """
 
+
 def rain(walls):
     """
         Function that calculates how much water will be retained after it rains
