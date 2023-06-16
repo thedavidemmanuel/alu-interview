@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+/usr/bin/python3
 """
     Python script that calculates how much water is retained after it rains
 """
@@ -32,4 +32,3 @@ def rain(walls):
             right -= 1
 
     return water_collected
-
