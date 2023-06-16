@@ -1,23 +1,25 @@
 #!/usr/bin/python3
 def rain(walls):
-    if not walls:
-        return 0
+    """Calculates the amount of water retained after it rains.
 
-    size = len(walls)
-    left_max = [0]*size
-    right_max = [0]*size
-    water_retained = 0
+    Args:
+        walls: A list of non-negative integers representing the heights of walls with unit width 1.
 
-    left_max[0] = walls[0]
-    for i in range(1, size):
-        left_max[i] = max(left_max[i-1], walls[i])
+    Returns:
+        Integer indicating total amount of rainwater retained.
+    """
 
-    right_max[size-1] = walls[size-1]
-    for i in range(size-2, -1, -1):
-        right_max[i] = max(right_max[i+1], walls[i])
+    # Initialize the amount of water retained
+    water = 0
 
-    for i in range(size):
-        water_retained += min(left_max[i], right_max[i]) - walls[i]
+    # Iterate through the walls
+    for i in range(1, len(walls) - 1):
+        # Find the highest wall to the left and right of the current wall
+        left_wall = max(walls[:i])
+        right_wall = max(walls[i + 1:])
 
-    return water_retained
+        # Calculate the amount of water that can be retained by the current wall
+        water += min(left_wall, right_wall) - walls[i]
+
+    return water
 
